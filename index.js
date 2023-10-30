@@ -33,7 +33,7 @@ const questions = [
 
 // Allowing the questions to be prompted in node, then when a question has been showed, it will show the answers available for that question. The question will ask of the Text, Shape, and the shape color.
 
-inquirer.createPromptModule(questions).then(answers) => {
+inquirer.prompt(questions).then((answers) => {
     const { text, textColor, shape, shapeColor } = answers;
 
         x = 150;
@@ -53,30 +53,33 @@ inquirer.createPromptModule(questions).then(answers) => {
     switch (shape) {
         case 'Triangle' :
             const Triangle = new Triangle();
-            triangle.setColor(ShapeColor);
+            Triangleriangle.setColor(shapeColor);
             svgElement = Triangle.render();
             break;
         case 'Circle' :
-                const Circle = new Circle();
-                Circle.setColor(ShapeColor);
-                svgElement = Circle.render();
-                break;
+            const Circle = new Circle();
+            Circle.setColor(shapehapeColor);
+            svgElement = Circle.render();
+            break;
         case 'Square' :
-                const Square = new Square();
-                Square.setColor(ShapeColor);
-                svgElement = Square.render();
-                break;
+            const Square = new Square();
+            Square.setColor(shapehapeColor);
+            svgElement = Square.render();
+            break;
     };
 // the if else statement says that if it is not a Triangle, it will then next choos e the square. If not, it will be a Circle.
     if(shape === 'Triangle') {
         y = 135;
-    } else if (shape === Square) {
+    } else if (shape === 'Square') {
         y = 145;
     }
     // XML namespace for SVG
-        const finalSVG = '<svg xmlns = "https://www.w3.org/2000/svg";        ${svgElement}
-        <text x="${x}"  y="${y}"  fill="${textColor}" font-size="50" text-anchor="middle">${text}</text>
-    </svg>';
+    const finalSVG = `
+    <svg xmlns="https://www.w3.org/2000/svg">
+      ${svgElement}
+      <text x="${x}" y="${y}" fill="${textColor}" font-size="50" text-anchor="middle">${text}</text>
+    </svg>`;
+    
 // Allowing the file to be interacted with using fs
     fs.writeFileSync('logo-svg', finalSVG);
     console.log('Generated Logo-SVG');
