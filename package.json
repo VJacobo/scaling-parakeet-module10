@@ -1,0 +1,17 @@
+{
+    "name": "scaling-parakeet-module10",
+    "version": "1.0.0",
+    "description": "Node.js SVG Logo Generator",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "inquire": "^8.1.0"
+    },
+    "devDependencies": {
+        "jest": "^27.4.7"
+    }
+}
