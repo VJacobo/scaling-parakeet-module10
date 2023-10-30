@@ -6,10 +6,10 @@
     "scripts": {
         "test": "jest"
     },
-    "author": "",
+    "author": "Victoria",
     "license": "MIT",
     "dependencies": {
-        "inquire": "^8.1.0"
+        "inquire": "^0.1.1"
     },
     "devDependencies": {
         "jest": "^27.4.7"
