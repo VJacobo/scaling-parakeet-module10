@@ -1,10 +1,9 @@
 // Setting up the shapes, the Triangle, Circle and Square
 // "require" is allowing the file to be read
-
 // Setting up the quesions to choose the needed logo text, shape of the logo, and also the shape color. (line 10 - 32)
-const { Shape, Triangle, Circle, Square } = require('./lib/shapes');
-const inquirer = require('inquirer');
-const fs = require('fs');
+import { Shape, Triangle, Circle, Square } from './lib/shapes';
+import Inquire from 'inquire';
+import fs from 'fs';
 
 const questions = [
     {

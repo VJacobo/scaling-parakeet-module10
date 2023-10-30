@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Node.js SVG Logo Generator",
     "main": "index.js",
+    "type": "commonjs",
     "scripts": {
         "test": "jest"
     },
