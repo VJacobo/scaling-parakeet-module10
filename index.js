@@ -1,9 +1,11 @@
 // Setting up the shapes, the Triangle, Circle and Square
 // "require" is allowing the file to be read
 // Setting up the quesions to choose the needed logo text, shape of the logo, and also the shape color. (line 10 - 32)
-import { Shape, Triangle, Circle, Square } from './lib/shapes';
-import Inquire from 'inquire';
-import fs from 'fs';
+import Shape from './lib/shapes.js';
+import Triangle from './lib/shapes.js';
+import Circle from './lib/shapes.js';
+import Square from './lib/shapes.js';
+
 
 const questions = [
     {
@@ -49,7 +51,7 @@ inquirer.prompt(questions).then((answers) => {
     // - Circle
     // - Square
     // it will then render the input of the user.
-    switch (shape) {
+    switch (Shape) {
         case 'Triangle' :
             const Triangle = new Triangle();
             Triangleriangle.setColor(shapeColor);
@@ -57,19 +59,19 @@ inquirer.prompt(questions).then((answers) => {
             break;
         case 'Circle' :
             const Circle = new Circle();
-            Circle.setColor(shapehapeColor);
+            Circle.setColor(shapeColor);
             svgElement = Circle.render();
             break;
         case 'Square' :
             const Square = new Square();
-            Square.setColor(shapehapeColor);
+            Square.setColor(shapeColor);
             svgElement = Square.render();
             break;
     };
 // the if else statement says that if it is not a Triangle, it will then next choos e the square. If not, it will be a Circle.
-    if(shape === 'Triangle') {
+    if(Shape === 'Triangle') {
         y = 135;
-    } else if (shape === 'Square') {
+    } else if (Shape === 'Square') {
         y = 145;
     }
     // XML namespace for SVG
