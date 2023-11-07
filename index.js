@@ -1,11 +1,9 @@
 // Setting up the shapes, the Triangle, Circle and Square
 // "require" is allowing the file to be read
 // Setting up the quesions to choose the needed logo text, shape of the logo, and also the shape color. (line 10 - 32)
-import Shape from './lib/shapes.js';
-import Triangle from './lib/shapes.js';
-import Circle from './lib/shapes.js';
-import Square from './lib/shapes.js';
-
+const { Circle, Triangle, Square } = require("./shapes");
+const inquirer = require('inquirer');
+const { writeFile } = require("fs/promises")
 
 const questions = [
     {
@@ -51,7 +49,7 @@ inquirer.prompt(questions).then((answers) => {
     // - Circle
     // - Square
     // it will then render the input of the user.
-    switch (Shape) {
+    switch (shape) {
         case 'Triangle' :
             const Triangle = new Triangle();
             Triangleriangle.setColor(shapeColor);
@@ -69,9 +67,9 @@ inquirer.prompt(questions).then((answers) => {
             break;
     };
 // the if else statement says that if it is not a Triangle, it will then next choos e the square. If not, it will be a Circle.
-    if(Shape === 'Triangle') {
+    if(shape === 'Triangle') {
         y = 135;
-    } else if (Shape === 'Square') {
+    } else if (shape === 'Square') {
         y = 145;
     }
     // XML namespace for SVG
