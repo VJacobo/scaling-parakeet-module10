@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route handler
 app.get ('/', (req, res) => {
-    res.sendFile(__dirname + './index.html');
+    res.send('This server does not serve web-based content.');
 });
 
 // Route Handler for a post request
