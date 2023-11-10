@@ -1,9 +1,9 @@
 // Setting up the shapes, the Triangle, Circle and Square
 // "require" is allowing the file to be read
 // Setting up the quesions to choose the needed logo text, shape of the logo, and also the shape color. (line 10 - 32)
-const { Circle, Triangle, Square } = require("./shapes");
+const { Circle, Triangle, Square } = require("./lib/shapes");
 const inquirer = require('inquirer');
-const { writeFile } = require("fs/promises")
+const fs = require("fs")
 
 const questions = [
     {
@@ -38,11 +38,8 @@ inquirer.prompt(questions).then((answers) => {
         x = 150;
         y = 150;
 
-    const shapeObj = new Shape();
+    let shapeObj;
     let svgElement = '';
-
-    // Shape object is first to have an answer to be chosen, then the color of the logo shape will be chosen.
-    shapeObj.setColor(shapeColor);
 
     // the options from top to bottom will be the following:
     // - Triangle
@@ -51,21 +48,19 @@ inquirer.prompt(questions).then((answers) => {
     // it will then render the input of the user.
     switch (shape) {
         case 'Triangle' :
-            const Triangle = new Triangle();
-            Triangleriangle.setColor(shapeColor);
-            svgElement = Triangle.render();
+            shapeObj = new Triangle();
             break;
         case 'Circle' :
-            const Circle = new Circle();
-            Circle.setColor(shapeColor);
-            svgElement = Circle.render();
+            shapeObj = new Circle();
             break;
         case 'Square' :
-            const Square = new Square();
-            Square.setColor(shapeColor);
-            svgElement = Square.render();
+            shapeObj = new Square();
             break;
     };
+
+// Shape object is first to have an answer to be chosen, then the color of the logo shape will be chosen.
+shapeObj.setColor(shapeColor);
+
 // the if else statement says that if it is not a Triangle, it will then next choos e the square. If not, it will be a Circle.
     if(shape === 'Triangle') {
         y = 135;
@@ -75,11 +70,11 @@ inquirer.prompt(questions).then((answers) => {
     // XML namespace for SVG
     const finalSVG = `
     <svg xmlns="https://www.w3.org/2000/svg">
-      ${svgElement}
+      ${shapeObj.render()}
       <text x="${x}" y="${y}" fill="${textColor}" font-size="50" text-anchor="middle">${text}</text>
     </svg>`;
     
 // Allowing the file to be interacted with using fs
-    fs.writeFileSync('logo-svg', finalSVG);
+    fs.writeFileSync('logo-svg.svg', finalSVG);
     console.log('Generated Logo-SVG');
 });
